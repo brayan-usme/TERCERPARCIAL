@@ -106,6 +106,10 @@
                     Console.Write(Matriz[i, j] + "\t");
                     Console.ResetColor();
                 }
+                else 
+                {
+                    Console.Write(matriz[i, j] + "\t");
+                }
             }
         }
     }
