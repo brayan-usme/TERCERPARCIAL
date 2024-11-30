@@ -95,9 +95,18 @@
     static void MostrarMatriz(int[] Matriz)
     {
         Console.Clear();
-        for (int i = 0; i < Matriz.GetLength(0) 
+        for (int i = 0; i < Matriz.GetLength(0); i++)
         {
-        
+
+            for (int j = 0; j < Matriz.GetLength(1); j++) 
+            {
+                if (Matriz[i, j] == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green; // Color para el 0
+                    Console.Write(Matriz[i, j] + "\t");
+                    Console.ResetColor();
+                }
+            }
         }
     }
 
