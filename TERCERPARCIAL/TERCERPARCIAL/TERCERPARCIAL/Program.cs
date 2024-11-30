@@ -64,7 +64,7 @@ class Program
                 matriz[x, y] = 0;
                 y++;
             }
-            else if (tecla == ConsoleKey.X) // Salir
+            else if (tecla == ConsoleKey.X) // Salirr
             {
                 Console.WriteLine("\n¡Programa terminado!");
                 break;
