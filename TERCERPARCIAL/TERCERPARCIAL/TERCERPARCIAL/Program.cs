@@ -23,11 +23,22 @@
             for (int j = 0; j < m; j++) 
             {
 
-                Matriz[i, j]= random.Next();
+                Matriz[i, j]= random.Next(1,10); // ponemos el 10 para que solo tome valores hasta el 9
             }
 
 
         }
+
+        //ahora vamos a inicializar la posicion del cero 
+
+        int x = 0,y = 0;
+        Matriz[x,y] = 0;
+
+        //ahora vamos a mostrar la matriz inicial
+        mostrarmatriz(Matriz);
+
+
+
 
     }
 
