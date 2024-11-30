@@ -54,13 +54,19 @@
                 x--;
 
             }
-            else if(tecla == ConsoleKey.S && x < n - 1) //ABAJO
+            else if (tecla == ConsoleKey.S && x < n - 1) //ABAJO
             {
                 Matriz[x + 1, y] += Matriz[x, y];
                 Matriz[x, y] = 0;
                 x++;
             }
-
+            else if (tecla == ConsoleKey.A && y > 0) // IZQUIERDA
+            {
+            
+                Matriz[x, y - 1] += Matriz[x, y];
+                Matriz[x, y] = 0;
+                y--;
+            }
 
 
 
