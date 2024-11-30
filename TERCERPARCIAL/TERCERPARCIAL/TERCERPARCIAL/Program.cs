@@ -37,7 +37,14 @@
         //ahora vamos a mostrar la matriz inicial
         mostrarmatriz(Matriz);
 
+        // le decimos al usuario como puede jugar para que sepa que presionar 
+        Console.WriteLine("\nUse las teclas 'w', 'a', 's', 'd' para mover el 0. Presione 'x' para salir.");
 
+        while (true)
+        {
+        //VAMOS A CAPTURAR LAS TECLAS QUE EL USUARIO PRESIONE
+        ConsoleKey tecla = Console.ReadKey(true).Key;
+        }
 
 
     }
