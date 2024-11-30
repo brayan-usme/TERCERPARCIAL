@@ -62,29 +62,44 @@
             }
             else if (tecla == ConsoleKey.A && y > 0) // IZQUIERDA
             {
-            
+
                 Matriz[x, y - 1] += Matriz[x, y];
                 Matriz[x, y] = 0;
                 y--;
             }
 
-            else if(tecla == ConsoleKey.D && y < m - 1) //derecha 
+            else if (tecla == ConsoleKey.D && y < m - 1) //derecha 
             {
                 Matriz[x, y + 1] += Matriz[x, y];
-                Matriz[x,y] = 0;
+                Matriz[x, y] = 0;
                 y++;
 
             }
 
+            else if (tecla == ConsoleKey.X) // salir
+            {
+                Console.WriteLine("\n El programa termino profe uchas gracias :v");
+                break;
+            }
 
-
+            // ahora para poder mostrar la matriz cuando se vaya moviendo 
+            Mostrarmatriz(Matriz);
+            Console.WriteLine("\nUse las teclas 'w', 'a', 's', 'd' para mover el 0. Presione 'x' para salir.");
         }
+
 
 
     }
 
-
-
+    //aca creamos el metodo para mostrar la matriz 
+    static void MostrarMatriz(int[] Matriz)
+    {
+        Console.Clear();
+        for (int i = 0; i < Matriz.GetLength(0) 
+        {
+        
+        }
+    }
 
 
 
