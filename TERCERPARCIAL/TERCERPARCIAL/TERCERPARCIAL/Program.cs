@@ -68,6 +68,13 @@
                 y--;
             }
 
+            else if(tecla == ConsoleKey.D && y < m - 1) //derecha 
+            {
+                Matriz[x, y + 1] += Matriz[x, y];
+                Matriz[x,y] = 0;
+                y++;
+
+            }
 
 
 
