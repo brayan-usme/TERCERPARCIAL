@@ -1,122 +1,101 @@
-﻿internal class Program
-{
-    private static void Main(string[] args)
-    {
+﻿using System;
 
+class Program
+{
+    static void Main()
+    {
         int n, m;
 
-        //PEDIR AL USUARIO EL VALOR DE LAS DIMENSIONES
-        Console.WriteLine(" Ingrese el número de filas (n):");
-        n = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Ingrese el número de columnas (m):");
-        m = Convert.ToInt32(Console.ReadLine());
+        // Solicitar las dimensiones de la matriz
+        Console.WriteLine("Ingrese el número de filas (n): ");
+        n = int.Parse(Console.ReadLine());
+        Console.WriteLine("Ingrese el número de columnas (m): ");
+        m = int.Parse(Console.ReadLine());
 
-        //declarar la matriz y hacer que tenga valores aleatorios
-
-        int[,] Matriz = new int[n, m];
-        Random random = new Random();
-
+        // Crear y llenar la matriz con números aleatorios
+        int[,] matriz = new int[n, m];
+        Random rand = new Random();
 
         for (int i = 0; i < n; i++)
         {
-
             for (int j = 0; j < m; j++)
             {
-
-                Matriz[i, j] = random.Next(1, 10); // ponemos el 10 para que solo tome valores hasta el 9
+                matriz[i, j] = rand.Next(1, 10); // Valores entre 1 y 9
             }
-
-
         }
 
-        //ahora vamos a inicializar la posicion del cero 
-
+        // Inicializar la posición del '0'
         int x = 0, y = 0;
-        Matriz[x, y] = 0;
+        matriz[x, y] = 0;
 
-        //ahora vamos a mostrar la matriz inicial
-        mostrarmatriz(Matriz);
+        // Mostrar la matriz inicial
+        MostrarMatriz(matriz);
 
-        // le decimos al usuario como puede jugar para que sepa que presionar 
+        // Instrucciones para el usuario
         Console.WriteLine("\nUse las teclas 'w', 'a', 's', 'd' para mover el 0. Presione 'x' para salir.");
 
         while (true)
         {
-            //VAMOS A CAPTURAR LAS TECLAS QUE EL USUARIO PRESIONE
+            // Capturar la tecla presionada
             ConsoleKey tecla = Console.ReadKey(true).Key;
 
-            // ahora vamoa hacer que el cero se mueva y haga las sumas
-
-            if (tecla == ConsoleKey.W && x > 0) //arriba
+            // Mover el 0 y realizar las sumas
+            if (tecla == ConsoleKey.W && x > 0) // Arriba
             {
-                Matriz[x - 1, y] += Matriz[x, y];
-                Matriz[x, y] = 0;
+                matriz[x - 1, y] += matriz[x, y];
+                matriz[x, y] = 0;
                 x--;
-
             }
-            else if (tecla == ConsoleKey.S && x < n - 1) //ABAJO
+            else if (tecla == ConsoleKey.S && x < n - 1) // Abajo
             {
-                Matriz[x + 1, y] += Matriz[x, y];
-                Matriz[x, y] = 0;
+                matriz[x + 1, y] += matriz[x, y];
+                matriz[x, y] = 0;
                 x++;
             }
-            else if (tecla == ConsoleKey.A && y > 0) // IZQUIERDA
+            else if (tecla == ConsoleKey.A && y > 0) // Izquierda
             {
-
-                Matriz[x, y - 1] += Matriz[x, y];
-                Matriz[x, y] = 0;
+                matriz[x, y - 1] += matriz[x, y];
+                matriz[x, y] = 0;
                 y--;
             }
-
-            else if (tecla == ConsoleKey.D && y < m - 1) //derecha 
+            else if (tecla == ConsoleKey.D && y < m - 1) // Derecha
             {
-                Matriz[x, y + 1] += Matriz[x, y];
-                Matriz[x, y] = 0;
+                matriz[x, y + 1] += matriz[x, y];
+                matriz[x, y] = 0;
                 y++;
-
             }
-
-            else if (tecla == ConsoleKey.X) // salir
+            else if (tecla == ConsoleKey.X) // Salir
             {
-                Console.WriteLine("\n El programa termino profe uchas gracias :v");
+                Console.WriteLine("\n¡Programa terminado!");
                 break;
             }
 
-            // ahora para poder mostrar la matriz cuando se vaya moviendo 
-            Mostrarmatriz(Matriz);
+            // Mostrar la matriz después de cada movimiento
+            MostrarMatriz(matriz);
             Console.WriteLine("\nUse las teclas 'w', 'a', 's', 'd' para mover el 0. Presione 'x' para salir.");
         }
-
-
-
     }
 
-    //aca creamos el metodo para mostrar la matriz 
-    static void MostrarMatriz(int[] Matriz)
+    // Método para mostrar la matriz
+    static void MostrarMatriz(int[,] matriz)
     {
         Console.Clear();
-        for (int i = 0; i < Matriz.GetLength(0); i++)
+        for (int i = 0; i < matriz.GetLength(0); i++)
         {
-
-            for (int j = 0; j < Matriz.GetLength(1); j++) 
+            for (int j = 0; j < matriz.GetLength(1); j++)
             {
-                if (Matriz[i, j] == 0)
+                if (matriz[i, j] == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Green; // Color para el 0
-                    Console.Write(Matriz[i, j] + "\t");
+                    Console.Write(matriz[i, j] + "\t");
                     Console.ResetColor();
                 }
-                else 
+                else
                 {
                     Console.Write(matriz[i, j] + "\t");
                 }
             }
+            Console.WriteLine();
         }
     }
-
-
-
-
-
-
 }
