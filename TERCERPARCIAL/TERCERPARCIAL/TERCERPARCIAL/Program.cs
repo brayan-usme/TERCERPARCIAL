@@ -57,6 +57,8 @@
             else if(tecla == ConsoleKey.S && x < n - 1) //ABAJO
             {
                 Matriz[x + 1, y] += Matriz[x, y];
+                Matriz[x, y] = 0;
+                x++;
             }
 
 
